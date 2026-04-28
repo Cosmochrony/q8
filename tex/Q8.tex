@@ -60,12 +60,12 @@
     in Q7 (unique up to positive scalar by Schur's lemma), the image of this commutator term under
     $\varphi$ is constrained to be proportional to the unique $\suTwo$-invariant quadratic form on
     $\Sym^{2}(\Vr)$, namely the Casimir $\Csu = 2 \cdot \mathrm{Id}$.
-    There is no free scalar: $\AH$ and $\Az$ are both proportional to $\Csu$ via the \emph{same}
-    bridge $\varphi$, so the Schur scalar cancels in the ratio $\Az/\AH = \Csu/\Csu = 1$.
+    There is no free scalar: the normalisation is fixed by the same Casimir that sets $\Az = 2$ in
+    Q7 Remark~6.3.
     The result is therefore: \emph{given bridge existence}, $\Az = \Csu = 2$ unconditionally.
     The effective spatial co-metric is $\gsp = \AH(k_X^{2} + k_Y^{2}) + 2\,k_Z^{2}$ with $\AH \to 2$
     as $q \to \infty$ (Q7 Conjecture~6.6), yielding a non-degenerate rank-$4$ Lorentzian metric on
-    $\mathbb{R}_{\tau} \times \heisR$ and closing open problem Q5b-O2.
+    $\mathbb{R}_{\tau} \times \heisR$ and closing Q5b-O2 conditionally on bridge existence.
   \end{abstract}
 
   \textbf{Keywords:} Heisenberg group; Weil representation; sub-principal symbol; Casimir operator;
@@ -185,17 +185,6 @@
         determined by a single algebraic datum.
       \end{proof}
 
-      \begin{remark}[From commutator to quadratic symbol term]\label{rem:commutator-quadratic}
-        The commutator $[\tX, \tY] = \tZ$ is a relation in the Lie algebra and is linear in the generators.
-        The passage to a quadratic symbol term $k_Z^{2}$ occurs because the operator $\Leff$ involves
-        products of two generators: in the Heisenberg functional calculus, the sub-principal symbol of
-        $\tX^{2} + \tY^{2}$ at Carnot degree~$2$ receives a contribution from the commutator via the
-        quadratic form induced by $\mathrm{d}\pi(\tZ)$ on the representation fibre.
-        This is the standard mechanism by which a degree-$(1,1)$ commutator enters the degree-$2$ symbol:
-        the commutator is linear at the Lie algebra level but quadratic at the symbol level through the
-        representation.
-      \end{remark}
-
       \begin{remark}[Contrast with higher-step nilpotent groups]
 For a nilpotent group of class~$3$ or higher, additional commutators $[\tZ, \cdot]$ would be
 non-trivial and could contribute further sub-principal terms.
@@ -242,41 +231,19 @@ the identification problem tractable at this order.
       \end{proposition}
 
       \begin{proof}
-        The argument proceeds in four steps.
-
-        \emph{Step~(i): uniqueness of the $\tZ$-source.}
-        By Proposition~\ref{prop:source}, the sub-principal $k_Z^{2}$-term in $\sigmatwo(\Leff)$
-        arises solely from the commutator $[\tX, \tY] = \tZ$.
-
-        \emph{Step~(ii): reduction to a scalar via equivariance.}
+        By Proposition~\ref{prop:source}, the sub-principal $k_Z^{2}$-term arises solely from
+        $[\tX, \tY] = \tZ$.
         The grading correspondence (Q7 Remark~4.2) identifies $\tZ$ with the spin-weight-$0$
         basis vector $e_{0} \in \Sym^{2}(\Vr)$.
-        Under the equivariant bridge $\varphi$, the $k_Z^{2}$-component of $\sigmatwo(\Leff)$
-        is carried by $\varphi(e_{0}) \in \Wsp$.
-        Equivariance reduces the coefficient of this component to a single scalar: by
-        Lemma~\ref{lem:casimir-unique}, any $\suTwo$-equivariant quadratic form on
-        $\Sym^{2}(\Vr)$ is a scalar multiple of the Casimir.
-
-        \emph{Step~(iii): Schur forces the Casimir.}
-        Since $\Csu$ acts as $2 \cdot \mathrm{Id}$ on all of $\Sym^{2}(\Vr)$, the coefficient
-        of the $k_Z^{2}$-term is $\lambda \cdot 2$ for some positive scalar $\lambda$ associated
-        with the normalisation of $\varphi$.
-
-        \emph{Step~(iv): cross-normalisation fixes $\lambda = 1$.}
-        The \emph{same} bridge $\varphi$ governs both the horizontal sector (spin-weight $\pm 1$,
-        carrying $k_X^{2} + k_Y^{2}$ with coefficient $\AH$) and the central sector (spin-weight $0$,
-        carrying $k_Z^{2}$ with coefficient $\Az$).
-        Both coefficients are measured in the same units, so the Schur scalar $\lambda$ is common
-        to both.
-        The ratio is therefore
-        \begin{equation}
-          \frac{\Az}{\AH} = \frac{\lambda \cdot \Csu}{\lambda \cdot \Csu} = 1,
-        \end{equation}
-        where the equality of the two Casimir values follows from $\Csu = 2 \cdot \mathrm{Id}$
-        acting uniformly on all of $\Sym^{2}(\Vr)$.
-        The scalar $\lambda$ cancels exactly, leaving $\Az = \AH$.
-        Since Q7 Conjecture~6.6 gives $\AH \to 2$ as $q \to \infty$, one obtains
-        $\Az = 2 = \Csu$.
+        Under $\varphi$, the $k_Z^{2}$-component of $\sigmatwo(\Leff)$ is carried by
+        $\varphi(e_{0}) \in \Wsp$.
+        Any $\suTwo$-equivariant quadratic form evaluated on the $e_{0}$-direction must, by
+        Lemma~\ref{lem:casimir-unique}, be a scalar multiple of the Casimir eigenvalue on that direction.
+        Since $\Csu$ acts as $2 \cdot \mathrm{Id}$ on all of $\Sym^{2}(\Vr)$ (including the $e_{0}$
+        eigenspace), the coefficient is $\Az = 2$.
+        The Rigidity Lemma ensures there is no residual freedom: the scalar $\lambda$ of $\varphi$
+        cancels in the ratio $\Az / \AH$ once the normalisation is fixed by the same Casimir acting
+        on the $e_{\pm}$-directions (which yield $\AH = 2$ in the isotropic limit).
       \end{proof}
 
       \begin{proof}[Proof of Theorem~\ref{thm:main}]
@@ -294,7 +261,7 @@ Granting convergence, the full effective co-metric becomes
 \end{equation}
 which is non-degenerate of rank~$4$.
 Combined with the Lorentzian signature result of Q5b Theorem~6.1~\cite{Beau2026q5b},
-this gives signature $(-,+,+,+)$ and closes Q5b-O2.
+this gives signature $(-,+,+,+)$ and closes Q5b-O2 conditionally on bridge existence.
       \end{proof}
 
       \begin{remark}[Unconditional character of $\Az = 2$]
@@ -358,7 +325,7 @@ specific form of the expansion.
         \end{equation}
         which is non-degenerate of rank~$4$, with Lorentzian signature $(-,+,+,+)$ and
         with all spatial eigenvalues equal to the $\suTwo$-Casimir eigenvalue $\Csu = 2$.
-        Open problem $Q5b$-$O2$ is resolved.
+        Open problem $Q5b$-$O2$ is resolved conditionally on the existence of the equivariant bridge.
       \end{corollary}
 
     \subsection{The bridge conjecture: status update}
@@ -379,65 +346,47 @@ specific form of the expansion.
       the spectral structure of the substrate, not from external inputs.
       The effective metric is therefore determined, up to the single temporal coefficient $A_{\tau}$
       (subject to Q5b-O3~\cite{Beau2026q5b}), by the representation-theoretic data already
-      established in O23~\cite{Beau2026a27}, O28\textendash O29~\cite{Beau2026a32,Beau2026a33},
+      established in O23~\cite{Beau2026a23}, O28\textendash O29~\cite{Beau2026a32,Beau2026a33},
       and Q7~\cite{Beau2026q7}.
 
   \section{Summary and Open Problems}
 
     \subsection{What this paper establishes}
 
-      The proof of Theorem~\ref{thm:main} reduces to four steps, each closing one logical gap:
       \begin{enumerate}
-        \item[(i)] \emph{Uniqueness of the $\tZ$-source.}
-        The nilpotency class~$2$ of $\heisR$ forces $[\tX,\tY] = \tZ$ to be the sole algebraic
-        source of the sub-principal $k_Z^{2}$-term (Proposition~\ref{prop:source}).
-        \item[(ii)] \emph{Equivariance reduces to a scalar.}
-        Under the equivariant bridge $\varphi$, the $\tZ$-term maps to a scalar multiple of the
-        Casimir by Schur's lemma (Lemma~\ref{lem:casimir-unique},
+        \item The sub-principal $k_Z^{2}$-term in $\sigmatwo(\Leff)$ has a unique algebraic source:
+        the Heisenberg commutator $[\tX, \tY] = \tZ$ (Proposition~\ref{prop:source}).
+        \item Under the equivariant bridge, the coefficient of this term is fixed by the
+        $\suTwo$-Casimir: $\Az = \Csu = 2$ (Lemma~\ref{lem:casimir-unique},
         Proposition~\ref{prop:bridge-casimir}).
-        \item[(iii)] \emph{Schur forces the Casimir.}
-        The unique $\suTwo$-invariant quadratic form on $\Sym^{2}(\Vr)$ is $\Csu = 2 \cdot \mathrm{Id}$,
-        fixing the coefficient to $\lambda \cdot 2$.
-        \item[(iv)] \emph{Cross-normalisation kills $\lambda$.}
-        The ratio $\Az/\AH = \Csu/\Csu = 1$ is independent of $\lambda$, since both sectors
-        are governed by the same bridge.
-        With $\AH \to 2$, this gives $\Az = 2$.
+        \item Consequently the effective spatial co-metric is isotropic with all eigenvalues
+        equal to~$2$, and the full co-metric $g^{\mu\nu}$ is non-degenerate rank-$4$ Lorentzian
+        (Theorem~\ref{thm:main}, Corollary~\ref{cor:metric}).
+        \item Open problem Q5b-O2 of~\cite{Beau2026q5b} is resolved under the hypotheses of
+        Theorem~\ref{thm:main}.
       \end{enumerate}
 
-      The four conclusions of the paper are:
-      \item The sub-principal $k_Z^{2}$-term in $\sigmatwo(\Leff)$ has a unique algebraic source:
-      the Heisenberg commutator $[\tX, \tY] = \tZ$ (Proposition~\ref{prop:source}).
-      \item Under the equivariant bridge, the coefficient of this term is fixed by the
-      $\suTwo$-Casimir: $\Az = \Csu = 2$ (Lemma~\ref{lem:casimir-unique},
-      Proposition~\ref{prop:bridge-casimir}).
-      \item Consequently the effective spatial co-metric is isotropic with all eigenvalues
-      equal to~$2$, and the full co-metric $g^{\mu\nu}$ is non-degenerate rank-$4$ Lorentzian
-      (Theorem~\ref{thm:main}, Corollary~\ref{cor:metric}).
-      \item Open problem Q5b-O2 of~\cite{Beau2026q5b} is resolved under the hypotheses of
-      Theorem~\ref{thm:main}.
-\end{enumerate}
+    \subsection{Remaining open problems}
 
-\subsection{Remaining open problems}
+      \textbf{Q8-O1} \emph{(Bridge existence).}
+      The proof of Q7 Conjecture~4.7 remains open.
+      Theorem~\ref{thm:main} establishes what the bridge must look like; existence itself is not proved here.
+      This is the central open problem in the Q-series geometric emergence track.
 
-  \textbf{Q8-O1} \emph{(Bridge existence).}
-  The proof of Q7 Conjecture~4.7 remains open.
-  Theorem~\ref{thm:main} establishes what the bridge must look like; existence itself is not proved here.
-  This is the central open problem in the Q-series geometric emergence track.
+      \textbf{Q8-O2} \emph{(Unconditional isotropy).}
+      Q7 Conjecture~6.6 (asymptotic $\AH \to 2$ as $q \to \infty$) is supported by numerical data
+      for $q \in \{61, 101, 151\}$ but not proved analytically.
+      An unconditional proof would remove the dependence on Q7 Conjecture~6.6 from
+      Corollary~\ref{cor:metric}.
+      The expected difficulty is moderate: the power-law decay $|\AH - \Az| \sim q^{-0.44}$
+      suggests an approach via the asymptotic expansion of the Weil Laplacian spectrum.
 
-  \textbf{Q8-O2} \emph{(Unconditional isotropy).}
-  Q7 Conjecture~6.6 (asymptotic $\AH \to 2$ as $q \to \infty$) is supported by numerical data
-  for $q \in \{61, 101, 151\}$ but not proved analytically.
-  An unconditional proof would remove the dependence on Q7 Conjecture~6.6 from
-  Corollary~\ref{cor:metric}.
-  The expected difficulty is moderate: the power-law decay $|\AH - \Az| \sim q^{-0.44}$
-  suggests an approach via the asymptotic expansion of the Weil Laplacian spectrum.
+      \textbf{Q8-O3} \emph{(Identification of $A_{\tau}$ and completion of Q5b-O3).}
+      With $\Az = 2$ established, the remaining free coefficient is $A_{\tau}$
+      (the temporal sector of the effective metric).
+      Its identification from the Born\textendash Infeld saturation data is the subject of
+      Q5b-O3~\cite{Beau2026q5b}.
 
-  \textbf{Q8-O3} \emph{(Identification of $A_{\tau}$ and completion of Q5b-O3).}
-  With $\Az = 2$ established, the remaining free coefficient is $A_{\tau}$
-  (the temporal sector of the effective metric).
-  Its identification from the Born\textendash Infeld saturation data is the subject of
-  Q5b-O3~\cite{Beau2026q5b}.
-
-  \bibliography{cosmochrony-bibliography}
+      \bibliography{cosmochrony-bibliography}
 
 \end{document}
