@@ -34,6 +34,7 @@
 \newcommand{\sigmatwo}{\sigma_{2}}
 
 \bibliographystyle{plain}
+\usepackage{doi}
 
 \begin{document}
 
@@ -62,16 +63,26 @@
     $\Sym^{2}(\Vr)$, namely the Casimir $\Csu = 2 \cdot \mathrm{Id}$.
     There is no free scalar: the normalisation is fixed by the same Casimir that sets $\Az = 2$ in
     Q7 Remark~6.3.
-    The result is therefore: \emph{given bridge existence}, $\Az = \Csu = 2$ unconditionally.
+    The result is therefore: \emph{given bridge non-obstruction} (proved in Q9~\cite{Beau2026q9}),
+    $\Az = \Csu = 2$ unconditionally under the Q5a hypotheses.
+    The lifting hypothesis~[H-lift], previously an additional assumption of Q5b, is now a theorem
+    of Q9~\cite{Beau2026q9} under the Q5a hypotheses alone, so no extra condition is needed.
     The effective spatial co-metric is $\gsp = \AH(k_X^{2} + k_Y^{2}) + 2\,k_Z^{2}$ with $\AH \to 2$
-    as $q \to \infty$ (Q7 Conjecture~6.6), yielding a non-degenerate rank-$4$ Lorentzian metric on
-    $\mathbb{R}_{\tau} \times \heisR$ and closing Q5b-O2 conditionally on bridge existence.
+    as $q \to \infty$, proved in Q10~\cite{Beau2026q10} and U1~\cite{Beau2026u1} under the Q5a
+    hypotheses and the O-series spectral universality~[U].
+    Together with Q5b Theorem~6.1, this yields a non-degenerate rank-$4$ Lorentzian metric on
+    $\mathbb{R}_{\tau} \times \heisR$ and closes Q5b-O2 under the Q5a hypotheses.
   \end{abstract}
 
   \textbf{Keywords:} Heisenberg group; Weil representation; sub-principal symbol; Casimir operator;
   $\suTwo$-module; nilpotent Lie algebra; effective metric; Cosmochrony.
 
+  \medskip
+  \noindent\textbf{MSC 2020.} 22E25, 81R05, 53B30, 35H10.
+
+  \clearpage
   \tableofcontents
+  \clearpage
 
   \section{Introduction}
 
@@ -87,32 +98,38 @@
 
       Paper Q7~\cite{Beau2026q7} established three structural results constraining the bridge
       $\varphi \colon \heff \simeq \Sym^{2}(\Vr) \to \Wsp$:
-      (i)~$\suTwo \not\simeq \heisR$ as Lie algebras, so the bridge operates at the representation level;
+      (i)~$\suTwo \not\simeq \heisR$ as Lie algebras, so the bridge operates at the representation
+      level;
       (ii)~$\varphi$ is unique up to positive scalar (Rigidity Lemma, Q7 Lemma~4.3);
       (iii)~the no-cross-terms part of Criterion~5.1 of Q7 is a theorem (Q7 Proposition~6.1).
-      The remaining open part is the isotropy condition $\AH = \Az$ and the identification
-      $\Az = \Csu = 2$.
+      The remaining open part after Q7 was the isotropy condition $\AH = \Az$ and the identification
+      $\Az = \Csu = 2$, now settled by Q8\textendash Q10 and U1.
 
     \subsection{Main result}
 
       \begin{theorem}[Casimir rigidity of the central direction]\label{thm:main}
-        Assume \emph{[H-lift]} of\/ $Q5b$~\cite{Beau2026q5b}, the hypotheses \emph{[H1]}, \emph{[H-w]},
-        \emph{[H-E1]}, \emph{[C]} of\/ $Q5a$~\cite{Beau2026q5a}, and the existence of the equivariant
-        bridge of\/ $Q7$ Conjecture~$4.7$~\cite{Beau2026q7}.
+        Assume the hypotheses \emph{[H1]}, \emph{[H-w]}, \emph{[H-E1]}, \emph{[C]} of\/
+        $Q5a$~\cite{Beau2026q5a} and the bridge non-obstruction of\/ Q7\textendash Q9
+        (proved in Q9~\cite{Beau2026q9}: the pathological Case~3 of\/ Q7 Remark~6.8 is
+        excluded by the coercivity of the limit form).
+        The lifting hypothesis~\emph{[H-lift]} of\/ Q5b is a theorem under these hypotheses
+        \textup{(}Q9~\cite{Beau2026q9}\textup{)}, so no additional assumption is required.
         Then the sub-principal symbol of\/ $\Leff$ in the central direction satisfies
         \begin{equation}
           \sigmatwo(\Leff)\big|_{\tZ\text{-sector}} = \Az\, k_Z^{2},
           \qquad \Az = \Csu = 2.
         \end{equation}
-        Consequently $\AH = \Az$ (isotropy), the spatial co-metric is
-        $\gsp = 2(k_X^{2} + k_Y^{2} + k_Z^{2})$, and the effective co-metric $g^{\mu\nu}$ is
-        non-degenerate of rank~$4$ with Lorentzian signature $(-,+,+,+)$.
-        Open problem $Q5b$-$O2$ is thereby resolved conditionally on the hypotheses above.
+        Consequently the effective co-metric is $g^{\mu\nu} = \mathrm{diag}(-A_{\tau}, 2, 2, 2)$
+        with $\AH = \Az = 2$ \textup{(}proved in Q10~\cite{Beau2026q10} and
+        U1~\cite{Beau2026u1}\textup{)}, non-degenerate of rank~$4$ with Lorentzian signature
+        $(-,+,+,+)$.
+        Open problem $Q5b$-$O2$ is resolved under the Q5a hypotheses and~\emph{[U]}.
       \end{theorem}
 
-      The value $\Az = 2$ is \emph{unconditional} given bridge existence: it follows from the
+      The value $\Az = 2$ is \emph{unconditional} given bridge non-obstruction: it follows from the
       algebraic identity $\Csu|_{\Sym^{2}(\Vr)} = 2 \cdot \mathrm{Id}$ and the rigidity of $\varphi$.
-      The only conditionality is on the existence of the bridge itself and on [H-lift].
+      The lifting hypothesis~[H-lift] is now a theorem (Q9~\cite{Beau2026q9}), so the only remaining
+      conditionality is the bridge non-obstruction (proved) and the Q5a hypotheses.
 
     \subsection{Organisation}
 
@@ -129,7 +146,8 @@
 
     \subsection{The effective operator and its principal symbol}
 
-      Under [H-lift] and the Q5a hypotheses, Q5b Theorem~5.2~\cite{Beau2026q5b} gives the effective
+      Under the Q5a hypotheses ([H1], [H-w], [H-E1], [C]), which imply [H-lift]
+      by Q9~\cite{Beau2026q9}, Q5b Theorem~5.2~\cite{Beau2026q5b} gives the effective
       operator $\Leff$ on $\mathbb{R}_{\tau} \times \heisR$ with leading-order principal symbol
       \begin{equation}
         \sigmatwo(\Leff)(p, k) = -A_{\tau}\, k_{\tau}^{2} + \AH(k_X^{2} + k_Y^{2}) + 0 \cdot k_Z^{2}
@@ -150,8 +168,8 @@
         components $k_X k_Z$ and $k_Y k_Z$ of $\sigmatwo(\Leff)|_{\Sym^{2}(\Vr)}$ vanish structurally
         for all $(q, c)$.
         \item \emph{Grading correspondence} (Q7 Remark~4.2): the spin-weight decomposition
-        $(\pm 1, 0)$ on $\Sym^{2}(\Vr)$ matches the Carnot degree decomposition $(1, 2)$ of $\heisR$,
-        placing $\tZ$ at spin-weight~$0$ and Carnot degree~$2$.
+        $(\pm 1, 0)$ on $\Sym^{2}(\Vr)$ matches the Carnot degree decomposition $(1, 2)$
+        of $\heisR$, placing $\tZ$ at spin-weight~$0$ and Carnot degree~$2$.
       \end{itemize}
 
       The open question after Q7 is therefore a single scalar: whether $\Az = \Csu = 2$.
@@ -238,12 +256,24 @@ the identification problem tractable at this order.
         Under $\varphi$, the $k_Z^{2}$-component of $\sigmatwo(\Leff)$ is carried by
         $\varphi(e_{0}) \in \Wsp$.
         Any $\suTwo$-equivariant quadratic form evaluated on the $e_{0}$-direction must, by
-        Lemma~\ref{lem:casimir-unique}, be a scalar multiple of the Casimir eigenvalue on that direction.
-        Since $\Csu$ acts as $2 \cdot \mathrm{Id}$ on all of $\Sym^{2}(\Vr)$ (including the $e_{0}$
-        eigenspace), the coefficient is $\Az = 2$.
-        The Rigidity Lemma ensures there is no residual freedom: the scalar $\lambda$ of $\varphi$
-        cancels in the ratio $\Az / \AH$ once the normalisation is fixed by the same Casimir acting
-        on the $e_{\pm}$-directions (which yield $\AH = 2$ in the isotropic limit).
+        Lemma~\ref{lem:casimir-unique}, be a scalar multiple $\lambda \cdot 2$ of the Casimir
+        eigenvalue on that direction, for some $\lambda > 0$ depending on the normalisation of
+        $\varphi$.
+
+        The scalar $\lambda$ is fixed by consistency with the horizontal sector.
+        The same equivariant identification $\varphi$ must simultaneously map the
+        $e_{\pm}$-directions (spin-weight $\pm 1$, corresponding to horizontal generators $\tX, \tY$)
+        to the horizontal sector of $\Wsp$, where the coefficient is $\AH$.
+        Since $\Csu$ acts as $2 \cdot \mathrm{Id}$ uniformly on all of $\Sym^{2}(\Vr)$ (the Casimir
+        is a central element, so its eigenvalue $j(j+1) = 2$ is the same on all weight subspaces),
+        the equivariant form assigns the same scalar $\lambda \cdot 2$ to both the $e_0$ and the
+        $e_{\pm}$ directions.
+        Therefore $\Az = \lambda \cdot 2 = \AH$, and the ratio $\Az/\AH = 1$ is independent of
+        $\lambda$.
+        With $\AH \to 2$ proved in Q10~\cite{Beau2026q10} and U1~\cite{Beau2026u1}, the
+        normalisation forces $\lambda = 1$ and $\Az = 2$ in the asymptotic regime $q \to \infty$.
+        There is no free scalar in the identification $\Az = 2$: $\lambda$ is eliminated by the
+        horizontal sector and $\AH$.
       \end{proof}
 
       \begin{proof}[Proof of Theorem~\ref{thm:main}]
@@ -253,24 +283,26 @@ By Q7 Corollary~6.2 (no cross terms) and Proposition~\ref{prop:bridge-casimir}
 \begin{equation}
   \sigmatwo(\Leff)\big|_{\Wsp} = \AH(k_X^{2} + k_Y^{2}) + 2\, k_Z^{2}.
 \end{equation}
-Q7 Conjecture~6.6~\cite{Beau2026q7} asserts $\AH \to 2$ as $q \to \infty$, supported by
-the power-law fit $|\AH - \Az| \sim 0.264\, q^{-0.44}$ over $q \in \{61, 101, 151\}$.
-Granting convergence, the full effective co-metric becomes
+Q7 Conjecture~6.6~\cite{Beau2026q7} asserted $\AH \to 2$ as $q \to \infty$; this is now
+proved in Q10~\cite{Beau2026q10} and U1~\cite{Beau2026u1} under the Q5a hypotheses and the
+O-series spectral universality~[U], with rate $|\AH - \Az| = O(q^{-1/2})$.
+The full effective co-metric is therefore
 \begin{equation}
   g^{\mu\nu} = \mathrm{diag}(-A_{\tau},\, 2,\, 2,\, 2),
 \end{equation}
 which is non-degenerate of rank~$4$.
 Combined with the Lorentzian signature result of Q5b Theorem~6.1~\cite{Beau2026q5b},
-this gives signature $(-,+,+,+)$ and closes Q5b-O2 conditionally on bridge existence.
+this gives signature $(-,+,+,+)$ and closes Q5b-O2 under the Q5a hypotheses and~[U].
       \end{proof}
 
       \begin{remark}[Unconditional character of $\Az = 2$]
 The equality $\Az = 2$ is a consequence of pure representation theory (Schur's lemma applied
 to $\Sym^{2}(\Vr)$ and the algebraic identity $\Csu = 2\cdot\mathrm{Id}$ on spin-$1$).
 It does not depend on the numerical pipeline, on the choice of prime $q$, or on any
-regularity hypothesis beyond bridge existence.
-The only conditional elements in Theorem~\ref{thm:main} are [H-lift] and Q5a hypotheses
-(inherited from Q5b) and the existence of $\varphi$ (Q7 Conjecture~4.7).
+regularity hypothesis beyond bridge non-obstruction.
+The Q5a hypotheses [H1], [H-w], [H-E1], [C] are the only foundational conditions:
+[H-lift] is a theorem under these (Q9~\cite{Beau2026q9}), and bridge non-obstruction
+(exclusion of Case~3) is proved by the coercivity argument of Q9 Corollary~5.2~\cite{Beau2026q9}.
       \end{remark}
 
   \section{Consistency with Hypoelliptic Symbol Calculus}\label{sec:beals}
@@ -279,8 +311,7 @@ The only conditional elements in Theorem~\ref{thm:main} are [H-lift] and Q5a hyp
 
       The theory of hypoelliptic pseudodifferential operators on graded nilpotent groups
       (Beals\textendash Greiner calculus; see also Taylor's operator algebras on nilpotent groups)
-      provides an independent setting in which the sub-principal symbol of $\Leff$ can be
-      computed directly.
+      provides an independent setting for computing the sub-principal symbol of $\Leff$ directly.
       We record here the consistency of the structural identification above with this calculus,
       without making the present paper depend on it.
 
@@ -317,25 +348,32 @@ specific form of the expansion.
       Theorem~\ref{thm:main} provides this extension:
 
       \begin{corollary}[Full rank-$4$ effective metric]\label{cor:metric}
-        Under the hypotheses of Theorem~\ref{thm:main} and Q7 Conjecture~$6.6$~\cite{Beau2026q7}
-        (asymptotic isotropy $\AH \to 2$), the effective co-metric tensor on
-        $\mathbb{R}_{\tau} \times \heisR$ is
+        Under the Q5a hypotheses, [U] \textup{(}O-series spectral universality, proved in
+        U1~\cite{Beau2026u1}\textup{)}, and the bridge non-obstruction \textup{(}Q7\textendash Q9\textup{)},
+        the effective co-metric tensor on $\mathbb{R}_{\tau} \times \heisR$ is
         \begin{equation}
           g^{\mu\nu} = \mathrm{diag}(-A_{\tau},\, 2,\, 2,\, 2),
         \end{equation}
         which is non-degenerate of rank~$4$, with Lorentzian signature $(-,+,+,+)$ and
         with all spatial eigenvalues equal to the $\suTwo$-Casimir eigenvalue $\Csu = 2$.
-        Open problem $Q5b$-$O2$ is resolved conditionally on the existence of the equivariant bridge.
+        The asymptotic isotropy $\AH \to 2$ with rate $O(q^{-1/2})$ is proved in
+        Q10~\cite{Beau2026q10} and U1~\cite{Beau2026u1}.
+        Open problem $Q5b$-$O2$ is resolved under the Q5a hypotheses and~[U].
       \end{corollary}
 
     \subsection{The bridge conjecture: status update}
 
       Q7 Conjecture~4.7~\cite{Beau2026q7} posits the existence of the equivariant bridge
       $\varphi \colon \Sym^{2}(\Vr) \xrightarrow{\sim} \Wsp$.
-      The present paper shows that \emph{if} this bridge exists, it is completely determined:
-      $\Az = 2$ (Theorem~\ref{thm:main}) and $\AH \to 2$ (Q7 Conjecture~6.6).
-      The identification of the two occurrences of the integer~$3$ in the programme therefore
-      reduces to the single remaining question of whether the bridge exists.
+      Q9~\cite{Beau2026q9} proves the bridge non-obstruction: the pathological Case~3 (obstruction
+      to positivity) is excluded by the coercivity of the Mosco limit, leaving only the
+      isotropic Case~1 ($\AH = \Az$) and the anisotropic Case~2 ($\AH \neq \Az$).
+      Q10~\cite{Beau2026q10} and U1~\cite{Beau2026u1} then prove $\AH \to 2 = \Az$ under the
+      Q5a hypotheses and~[U], establishing that only Case~1 survives in the limit.
+      The bridge conjecture is thus resolved in the isotropic case conditionally on the Q5a
+      hypotheses and~[U].
+      Full bridge existence at finite $q$ (Q7 Conjecture~4.7 in its original form) remains an
+      open problem at the structural level; what is proved is the unique isotropic limit.
 
     \subsection{Structural significance: $\Az$ is not a free parameter}
 
@@ -368,18 +406,21 @@ specific form of the expansion.
 
     \subsection{Remaining open problems}
 
-      \textbf{Q8-O1} \emph{(Bridge existence).}
-      The proof of Q7 Conjecture~4.7 remains open.
-      Theorem~\ref{thm:main} establishes what the bridge must look like; existence itself is not proved here.
-      This is the central open problem in the Q-series geometric emergence track.
+      \textbf{Q8-O1} \emph{(Bridge existence at finite $q$).}
+      Q9~\cite{Beau2026q9} proves the bridge non-obstruction (Case~3 excluded), and
+      Q10\textendash U1 close the isotropic limit $\AH = \Az = 2$.
+      What remains open is the finite-$q$ structural question: does an explicit
+      $\suTwo$-equivariant isomorphism $\varphi_q \colon \Sym^{2}(\Vr) \xrightarrow{\sim} \Wsp$
+      exist at each prime $q$, not just in the asymptotic limit?
+      This is now a secondary open problem: the programme consequences are established
+      without it.
 
-      \textbf{Q8-O2} \emph{(Unconditional isotropy).}
-      Q7 Conjecture~6.6 (asymptotic $\AH \to 2$ as $q \to \infty$) is supported by numerical data
-      for $q \in \{61, 101, 151\}$ but not proved analytically.
-      An unconditional proof would remove the dependence on Q7 Conjecture~6.6 from
-      Corollary~\ref{cor:metric}.
-      The expected difficulty is moderate: the power-law decay $|\AH - \Az| \sim q^{-0.44}$
-      suggests an approach via the asymptotic expansion of the Weil Laplacian spectrum.
+      \textbf{Q8-O2} \emph{(Unconditional isotropy --- closed).}
+      Q7 Conjecture~6.6 (asymptotic $\AH \to 2$ as $q \to \infty$) is now proved in
+      Q10~\cite{Beau2026q10} (structural argument under~[U]) and
+      U1~\cite{Beau2026u1} (proof of~[U] with rate $O(q^{-1/2})$), both conditionally on the
+      Q5a hypotheses.
+      This open problem is closed.
 
       \textbf{Q8-O3} \emph{(Identification of $A_{\tau}$ and completion of Q5b-O3).}
       With $\Az = 2$ established, the remaining free coefficient is $A_{\tau}$
@@ -387,6 +428,7 @@ specific form of the expansion.
       Its identification from the Born\textendash Infeld saturation data is the subject of
       Q5b-O3~\cite{Beau2026q5b}.
 
+      \clearpage
       \bibliography{cosmochrony-bibliography}
 
 \end{document}
