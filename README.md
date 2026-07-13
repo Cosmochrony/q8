@@ -1,8 +1,8 @@
 # Q8 — Sub-Principal Symbol of the Effective Operator and Casimir Rigidity
 
 This repository contains the source of the **Q8 Cosmochrony paper**
-[*Sub-Principal Symbol of the Effective Operator and Casimir Rigidity of the Central
-Direction*](out/Q8.pdf).
+*Sub-Principal Symbol of the Effective Operator and Casimir Rigidity of the Central
+Direction*.
 
 Paper Q7 reduced the open problem Q5b-O2 to a single computable criterion: whether the
 sub-principal symbol of the effective operator $L_{\mathrm{eff}}$ in the central direction
@@ -41,7 +41,6 @@ q8/
 
 ## Links
 
-- 📄 [Paper PDF](out/Q8.pdf)
 - 🔗 DOI: [10.5281/zenodo.19879909](https://doi.org/10.5281/zenodo.19879909)
 - 🌐 Website: https://cosmochrony.org/science/emergent-geometry/q8/
 
