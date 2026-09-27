@@ -1,8 +1,20 @@
 \documentclass[11pt,a4paper]{article}
 
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\input{glyphtounicode}
+\pdfgentounicode=1
+
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{mathtools}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+ pdftitle={Toward a Full-Rank Effective Metric: No Central Coefficient from the Heisenberg Commutator, and
+ Scale-Free Casimir Rigidity},
+ pdfauthor={J\'er\^ome Beau},
+ pdfkeywords={Heisenberg group; sub-Laplacian; principal symbol; Carnot dilations; su(2)-invariant forms;
+ Casimir operator; Schur lemma; effective metric; emergent geometry; Cosmochrony}
+}
 \usepackage{geometry}
 \geometry{margin=2.5cm}
 
@@ -11,26 +23,23 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{definition}[theorem]{Definition}
+\theoremstyle{definition}
+\newtheorem*{hypo}{Input}
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
 \DeclareMathOperator{\Sym}{Sym}
-\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\spn}{span}
 \newcommand{\heff}{\mathcal{H}_{\mathrm{eff}}}
 \newcommand{\Leff}{L_{\mathrm{eff}}}
-\newcommand{\LWeil}{L_{\mathrm{Weil}}}
-\newcommand{\gsp}{g_{\mathrm{sp}}}
+\newcommand{\Lext}{L_{\mathrm{ext}}}
 \newcommand{\Vr}{V_{\rho}}
 \newcommand{\Wsp}{W_{\mathrm{sp}}}
 \newcommand{\suTwo}{\mathfrak{su}(2)}
 \newcommand{\heisR}{\mathrm{Heis}_{3}(\mathbb{R})}
-\newcommand{\heisZ}{\mathrm{Heis}_{3}(\mathbb{Z}/q\mathbb{Z})}
 \newcommand{\Csu}{C_{\suTwo}}
 \newcommand{\Az}{A_{Z}}
 \newcommand{\AH}{A_{H}}
-\newcommand{\tX}{\widetilde{X}}
-\newcommand{\tY}{\widetilde{Y}}
-\newcommand{\tZ}{\widetilde{Z}}
 \newcommand{\sigmatwo}{\sigma_{2}}
 
 \bibliographystyle{plain}
@@ -38,7 +47,8 @@
 
 \begin{document}
 
-  \title{Sub-Principal Symbol of the Effective Operator and Casimir Rigidity of the Central Direction\\
+  \title{Toward a Full-Rank Effective Metric:\\
+  No Central Coefficient from the Heisenberg Commutator, and Scale-Free Casimir Rigidity\\[0.4em]
   \large Q8 of the Cosmochrony Spectral Geometry Programme}
   \author{J\'er\^ome Beau\\
   \small Independent Researcher\\
@@ -47,38 +57,33 @@
   \maketitle
 
   \begin{abstract}
-    Paper Q7~\cite{Beau2026q7} reduced the open problem Q5b-O2 of~\cite{Beau2026q5b} to a single
-    computable criterion: whether the sub-principal symbol of the effective operator $\Leff$ in the
-    central direction $\tZ = [\tX, \tY]$ of $\heisR$ carries coefficient $\Az = \Csu = 2$, the eigenvalue
-    of the $\suTwo$-Casimir on the spin-$1$ module $\Sym^{2}(\Vr)$.
-    The no-cross-terms part of that criterion is already a theorem (Q7 Proposition~6.1).
-    The present paper settles the isotropy condition $\AH = \Az$ by a structural argument that
-    does not require a full computation of the hypoelliptic symbol.
-    The key observation is that the sub-principal term in $\Leff$ along $\tZ$ has a unique algebraic
-    source: the Heisenberg commutator $[\tX, \tY] = \tZ$, which reflects the nilpotency class~$2$
-    of $\heisR$ and cannot be mimicked by any other generator.
-    Under the equivariant bridge $\varphi \colon \Sym^{2}(\Vr) \xrightarrow{\;\sim\;} \Wsp$ established
-    in Q7 (unique up to positive scalar by Schur's lemma), the image of this commutator term under
-    $\varphi$ is constrained to be proportional to the unique $\suTwo$-invariant quadratic form on
-    $\Sym^{2}(\Vr)$, namely the Casimir $\Csu = 2 \cdot \mathrm{Id}$.
-    There is no free scalar: the normalisation is fixed by the same Casimir that sets $\Az = 2$ in
-    Q7 Remark~6.3.
-    The result is therefore: \emph{given bridge non-obstruction} (proved in Q9~\cite{Beau2026q9}),
-    $\Az = \Csu = 2$ unconditionally under the Q5a hypotheses.
-    The lifting hypothesis~[H-lift], previously an additional assumption of Q5b, is now a theorem
-    of Q9~\cite{Beau2026q9} under the Q5a hypotheses alone, so no extra condition is needed.
-    The effective spatial co-metric is $\gsp = \AH(k_X^{2} + k_Y^{2}) + 2\,k_Z^{2}$ with $\AH \to 2$
-    as $q \to \infty$, proved in Q10~\cite{Beau2026q10} and U1~\cite{Beau2026u1} under the Q5a
-    hypotheses and the O-series spectral universality~[U].
-    Together with Q5b Theorem~6.1, this yields a non-degenerate rank-$4$ Lorentzian metric on
-    $\mathbb{R}_{\tau} \times \heisR$ and closes Q5b-O2 under the Q5a hypotheses.
+    The effective operator of Q5b, conditional on its spatial limit and lifting hypotheses, has a spatial principal
+    symbol of rank two with an empty central slot; completing it to a four-dimensional Lorentzian co-metric requires
+    a positive coefficient $A_Z$ of $k_Z^2$ (open problem Q5b-O2).
+    We prove that the Heisenberg commutator $[X, Y] = Z$ does not supply it.
+    In exponential coordinates the sub-Laplacian $X^2 + Y^2$ has no first-order part, its principal symbol is a sum
+    of two squares of rank two at every point, and its $k_Z^2$ coefficient is position-dependent and vanishes at the
+    identity; no term of lower differential order changes this.
+    Under the Carnot dilations the sub-Laplacian is homogeneous of degree two while $Z^2$ is homogeneous of degree
+    four, so a constant central coefficient requires a new operator, and the ratio of central to horizontal
+    coefficients is not dilation-invariant: equality of the two selects a length scale.
+    If a positive rank-three spatial form is supplied together with the compatibility conditions of Q7 and is
+    invariant under the full $\mathfrak{su}(2)$ action, Schur's lemma gives $A_H = A_Z = 2\lambda$ with $\lambda > 0$
+    free; rotation invariance about one axis does not suffice.
+    The Casimir acts as 2 on the spin-one module, but this fixes the normalisation of one invariant form, not a
+    coefficient.
+    No value of $A_Z$ is derived, the passage from the rank-two symbol to a positive rank-three form is not made, and
+    Q5b-O2 remains open.
+    Interpretive outlook: the central direction of the emergent space is not generated by the non-commutativity of
+    its horizontal directions at the level of the metric, and isotropy between the two kinds of direction is a
+    statement about a physical length scale, which the substrate would have to supply.
   \end{abstract}
 
-  \textbf{Keywords:} Heisenberg group; Weil representation; sub-principal symbol; Casimir operator;
-  $\suTwo$-module; nilpotent Lie algebra; effective metric; Cosmochrony.
+  \textbf{Keywords:} Heisenberg group; sub-Laplacian; principal symbol; Carnot dilations; su(2)-invariant forms;
+  Casimir operator; Schur's lemma; effective metric; emergent geometry; Cosmochrony.
 
   \medskip
-  \noindent\textbf{MSC 2020.} 22E25, 81R05, 53B30, 35H10.
+  \noindent\textbf{MSC 2020.} 22E25, 35H10, 53C17, 81R05.
 
   \clearpage
   \tableofcontents
@@ -86,350 +91,347 @@
 
   \section{Introduction}
 
-    \subsection{Context and the reduction of Q7}
+    \subsection{The central slot of the effective co-metric}
 
-      Paper Q5b~\cite{Beau2026q5b} derives the effective Lorentzian geometry of the Cosmochrony
-      framework by extracting a metric tensor from the principal symbol of the effective operator
-      $\Leff$ on $\mathbb{R}_{\tau} \times \heisR$.
-      The principal symbol is degenerate: the central generator $\tZ = [\tX, \tY]$ of $\heisR$ does not
-      appear at leading sub-Riemannian order, entering only through sub-principal corrections.
-      Open problem Q5b-O2 asks for the value of the coefficient $\Az$ of the resulting $k_Z^{2}$-term,
-      which would complete the $4 \times 4$ effective metric to full rank.
+      Paper Q5b~\cite{Beau2026q5b} extracts, conditionally on its spatial limit hypothesis [H-L] and on the lifting
+      hypothesis [H-lift], an effective operator $\Leff$ on $\mathbb{R}_{\tau} \times \heisR$ whose spatial part is
+      $\AH\,\Delta_H$, with $\Delta_H = X^2 + Y^2$ the sub-Laplacian, and a leading-order co-metric
+      $\mathrm{diag}(-A_\tau, \AH, \AH, 0)$ (Q5b Theorem~5.2).
+      Open problem Q5b-O2 asks for a full-rank extension, which would require a positive coefficient $\Az$ of $k_Z^2$.
+      Paper Q9~\cite{Beau2026q9} does not discharge [H-lift] and establishes no bridge non-obstruction.
+      Paper Q7~\cite{Beau2026q7} states what an equivariant identification between the admissible spin-one module
+      $\Sym^2(\Vr)$ and a three-dimensional spatial sector would require, and shows that Q5b's rank-two symbol cannot
+      be congruent to a positive rank-three form.
 
-      Paper Q7~\cite{Beau2026q7} established three structural results constraining the bridge
-      $\varphi \colon \heff \simeq \Sym^{2}(\Vr) \to \Wsp$:
-      (i)~$\suTwo \not\simeq \heisR$ as Lie algebras, so the bridge operates at the representation
-      level;
-      (ii)~$\varphi$ is unique up to positive scalar (Rigidity Lemma, Q7 Lemma~4.3);
-      (iii)~the no-cross-terms part of Criterion~5.1 of Q7 is a theorem (Q7 Proposition~6.1).
-      The remaining open part after Q7 was the isotropy condition $\AH = \Az$ and the identification
-      $\Az = \Csu = 2$, now settled by Q8\textendash Q10 and U1.
+      This paper answers two questions.
+      Can the Heisenberg commutator $[X, Y] = Z$ generate the missing central coefficient?
+      And if a positive rank-three spatial form is supplied, what does $\suTwo$ representation theory fix about its
+      coefficients?
 
     \subsection{Main result}
 
-      \begin{theorem}[Casimir rigidity of the central direction]\label{thm:main}
-        Assume the hypotheses \emph{[H1]}, \emph{[H-w]}, \emph{[H-E1]}, \emph{[C]} of\/
-        $Q5a$~\cite{Beau2026q5a} and the bridge non-obstruction of\/ Q7\textendash Q9
-        (proved in Q9~\cite{Beau2026q9}: the pathological Case~3 of\/ Q7 Remark~6.8 is
-        excluded by the coercivity of the limit form).
-        The lifting hypothesis~\emph{[H-lift]} of\/ Q5b is a theorem under these hypotheses
-        \textup{(}Q9~\cite{Beau2026q9}\textup{)}, so no additional assumption is required.
-        Then the sub-principal symbol of\/ $\Leff$ in the central direction satisfies
-        \begin{equation}
-          \sigmatwo(\Leff)\big|_{\tZ\text{-sector}} = \Az\, k_Z^{2},
-          \qquad \Az = \Csu = 2.
-        \end{equation}
-        Consequently the effective co-metric is $g^{\mu\nu} = \mathrm{diag}(-A_{\tau}, 2, 2, 2)$
-        with $\AH = \Az = 2$ \textup{(}proved in Q10~\cite{Beau2026q10} and
-        U1~\cite{Beau2026u1}\textup{)}, non-degenerate of rank~$4$ with Lorentzian signature
-        $(-,+,+,+)$.
-        Open problem $Q5b$-$O2$ is resolved under the Q5a hypotheses and~\emph{[U]}.
+      The input [T] and the invariance condition [INV$^+$] are stated in Section~\ref{sec:setup}.
+
+      \begin{theorem}[Central direction: rank obstruction and scale-free rigidity]\label{thm:main}
+        The following hold.
+        \begin{enumerate}
+          \item[(i)] The sub-Laplacian $\Delta_H$ of $\heisR$ has, in exponential coordinates, no first-order part,
+          and the principal symbol of $-\Delta_H$ is $(k_X + \frac{y}{2}k_Z)^2 + (k_Y - \frac{x}{2}k_Z)^2$, of rank
+          two at every point.
+          No operator obtained from $\AH\,\Delta_H$ by adding terms of lower differential order has a principal
+          symbol of rank three.
+          Under the Carnot dilations, $\Delta_H$ is homogeneous of degree two and a term $Z^2$ is homogeneous of
+          degree four.
+          \item[(ii)] Assume \textup{[T]} and \textup{[INV$^+$]}.
+          Then the transported spatial form on $\Sym^2(\Vr)$ is $\AH\,Q_\pm + \Az\,Q_0$ with
+          \begin{equation}\label{eq:main}
+            \AH = \Az = 2\lambda, \qquad \lambda > 0,
+          \end{equation}
+          so that the transported form is $\lambda$ times the Casimir form, and $\lambda$ is not determined by
+          \textup{[T]}, \textup{[INV$^+$]} or $\suTwo$-invariance.
+          \item[(iii)] Under \textup{[T]} with rotation invariance about a single axis in place of \textup{[INV$^+$]},
+          no relation between $\AH$ and $\Az$ follows.
+        \end{enumerate}
       \end{theorem}
 
-      The value $\Az = 2$ is \emph{unconditional} given bridge non-obstruction: it follows from the
-      algebraic identity $\Csu|_{\Sym^{2}(\Vr)} = 2 \cdot \mathrm{Id}$ and the rigidity of $\varphi$.
-      The lifting hypothesis~[H-lift] is now a theorem (Q9~\cite{Beau2026q9}), so the only remaining
-      conditionality is the bridge non-obstruction (proved) and the Q5a hypotheses.
+      Item~(i) is unconditional; it shows that Q5b-O2 cannot be settled from $\Leff$ by any lower-order correction,
+      and that a positive central coefficient requires a new operator of higher homogeneous degree.
+      Items~(ii) and~(iii) concern such a new operator, when one is supplied.
+      The form of~\eqref{eq:main} records the Casimir normalisation; it does not fix $\Az$.
+      In particular $\Az = 2$ is not a consequence of anything proved here or cited.
 
     \subsection{Organisation}
 
-      Section~\ref{sec:setup} recalls the relevant results of Q5b and Q7 and fixes notation.
-      Section~\ref{sec:source} identifies the unique algebraic source of the sub-principal $\tZ$-term
-      from the nilpotency structure of $\heisR$.
-      Section~\ref{sec:casimir} carries out the Casimir identification and proves Theorem~\ref{thm:main}.
-      Section~\ref{sec:beals} places the result in the hypoelliptic operator framework (Beals\textendash Greiner
-      calculus) as a consistency check and notes that no contributions beyond those identified in
-      Section~\ref{sec:source} arise at the relevant nilpotency order.
-      Section~\ref{sec:consequences} draws the consequences for Q5b-O2 and the effective metric.
+      Section~\ref{sec:setup} fixes conventions and states [T] and [INV$^+$].
+      Section~\ref{sec:source} proves item~(i) in exponential coordinates.
+      Section~\ref{sec:casimir} proves items~(ii) and~(iii).
+      Section~\ref{sec:beals} proves the homogeneity statement and draws its consequence for scales.
+      Section~\ref{sec:consequences} states the consequences for Q5b-O2, and Section~\ref{sec:summary} summarises.
 
-  \section{Setup and Inherited Results}\label{sec:setup}
+  \section{Setup and Inputs}\label{sec:setup}
 
-    \subsection{The effective operator and its principal symbol}
+    \subsection{Coordinates on the Heisenberg group}
 
-      Under the Q5a hypotheses ([H1], [H-w], [H-E1], [C]), which imply [H-lift]
-      by Q9~\cite{Beau2026q9}, Q5b Theorem~5.2~\cite{Beau2026q5b} gives the effective
-      operator $\Leff$ on $\mathbb{R}_{\tau} \times \heisR$ with leading-order principal symbol
-      \begin{equation}
-        \sigmatwo(\Leff)(p, k) = -A_{\tau}\, k_{\tau}^{2} + \AH(k_X^{2} + k_Y^{2}) + 0 \cdot k_Z^{2}
-        + (\text{sub-principal in } k_Z),
+      In exponential coordinates $(x, y, z)$ on $\heisR$, with the convention of Q7~\cite{Beau2026q7}, the
+      left-invariant horizontal fields and their commutator are
+      \begin{equation}\label{eq:fields}
+        X = \partial_x + \tfrac{y}{2}\,\partial_z, \qquad
+        Y = \partial_y - \tfrac{x}{2}\,\partial_z, \qquad
+        Z := [X, Y] = -\partial_z .
       \end{equation}
-      where the $k_Z^{2}$-slot is empty at principal order because the sub-Riemannian Laplacian
-      $\Delta_{H} = \tX^{2} + \tY^{2}$ on $\heisR$ is degenerate in the central direction.
+      The field $Z$ is central.
+      The Carnot dilations are $\delta_r(x, y, z) = (rx, ry, r^2 z)$ for $r > 0$; $X$ and $Y$ are homogeneous of
+      degree one and $Z$ of degree two.
+      The symbol of a differential operator is taken with $\partial_x \mapsto i k_X$, $\partial_y \mapsto i k_Y$ and
+      $\partial_z \mapsto i k_Z$.
 
-    \subsection{Inherited results from Q7}
+    \subsection{The spin-one module and the supplied target}
 
-      The following results from Q7~\cite{Beau2026q7} are used without re-proof:
-      \begin{itemize}
-        \item \emph{Symmetric square identification} (Q7 Proposition~4.1):
-        $\heff \simeq \Sym^{2}(\Vr)$ as an $\suTwo$-module (spin-$1$ representation).
-        \item \emph{Rigidity Lemma} (Q7 Lemma~4.3): any $\suTwo$-equivariant isomorphism
-        $\varphi \colon \Sym^{2}(\Vr) \xrightarrow{\sim} \Wsp$ is unique up to a positive scalar.
-        \item \emph{No-cross-terms theorem} (Q7 Proposition~6.1 and Corollary~6.2): the cross-term
-        components $k_X k_Z$ and $k_Y k_Z$ of $\sigmatwo(\Leff)|_{\Sym^{2}(\Vr)}$ vanish structurally
-        for all $(q, c)$.
-        \item \emph{Grading correspondence} (Q7 Remark~4.2): the spin-weight decomposition
-        $(\pm 1, 0)$ on $\Sym^{2}(\Vr)$ matches the Carnot degree decomposition $(1, 2)$
-        of $\heisR$, placing $\tZ$ at spin-weight~$0$ and Carnot degree~$2$.
-      \end{itemize}
+      Let $\Vr \simeq \mathbb{C}^2$ be the spin-$\frac12$ module of the supplied carrier of O23~\cite{Beau2026a27},
+      and $\Sym^2(\Vr)$ the spin-one module with weight vectors $e_+, e_0, e_-$ of $J_3$-weights $+1, 0, -1$,
+      orthonormal for an $\suTwo$-invariant Hermitian inner product $h_0$.
+      Write $Q_\pm$ and $Q_0$ for the orthogonal projections onto $\spn\{e_+, e_-\}$ and $\spn\{e_0\}$.
+      Q7 isolates four conditions: [ID], the identification of the admissible space $\heff$ with $\Sym^2(\Vr)$;
+      [ACT], an adjoint $\suTwo$ action on the real spatial sector $\Wsp$; [INV], invariance of the real spatial form
+      under the rotations generated by $J_3$, with compatibility with the real structure; and [ADAPT], an adapted
+      equivariant isomorphism $\varphi_0$ sending the weight $\pm 1$ plane to the horizontal plane and the weight $0$
+      line to the central line (Q7 Section~4 and Remark~4.6).
+      None is established for a geometric construction.
 
-      The open question after Q7 is therefore a single scalar: whether $\Az = \Csu = 2$.
+      \begin{hypo}[{[T]}, supplied target]
+        A candidate continuum operator $\Lext$ (Q7 Criterion~5.1) has a positive rank-three spatial form
+        $g_{\mathrm{sp}}$ on $\Wsp$, and [ID], [ACT], [INV] and [ADAPT] hold, so that the pullback of its Hermitian extension along
+        $\varphi = \lambda_0\varphi_0$, $\lambda_0 \in \mathbb{C}^\times$, is $\AH\,Q_\pm + \Az\,Q_0$ with
+        $\AH, \Az > 0$ (Q7 Lemma~4.5(3)).
+      \end{hypo}
 
-  \section{Unique Algebraic Source of the Sub-Principal $\tZ$-Term}\label{sec:source}
+      \begin{hypo}[{[INV$^+$]}, full invariance]
+        The Hermitian extension of $g_{\mathrm{sp}}$ is invariant under the whole $\suTwo$ action of [ACT], not only
+        under the rotations generated by $J_3$.
+      \end{hypo}
 
-    \subsection{Nilpotency and the generating role of the commutator}
+      Condition [INV] of Q7 makes the two horizontal coefficients equal and removes cross terms with the central line;
+      it does not force $\AH = \Az$ (Q7, proof of Lemma~4.5).
+      Condition [INV$^+$] is strictly stronger, and no source supplies it.
 
-      The Lie algebra $\heisR$ is nilpotent of class~$2$: the derived ideal
-      $[\heisR, \heisR] = \mathbb{R}\tZ$ is one-dimensional, central, and exhausts the lower
-      central series at step~$2$.
-      This has a direct consequence for the symbol expansion of $\Leff$.
+  \section{The Commutator Does Not Generate a Central Coefficient}\label{sec:source}
 
-      \begin{proposition}[Uniqueness of the sub-principal $\tZ$-source]\label{prop:source}
-        The $k_Z^{2}$-term in the symbol of\/ $\Leff$ at sub-principal order has a unique algebraic
-        origin: the Heisenberg commutator $[\tX, \tY] = \tZ$.
-        No other combination of generators of\/ $\heisR$ can contribute a term of the form $f(k_Z)\,k_Z^{2}$
-        at this order, because $\tZ$ is central and appears in no other commutator relation.
+    \subsection{The sub-Laplacian in exponential coordinates}
+
+      \begin{proposition}[No central quadratic term from the commutator]\label{prop:source}
+        With the fields~\eqref{eq:fields},
+        \begin{equation}\label{eq:sublap}
+          \Delta_H = X^2 + Y^2
+          = \partial_x^2 + \partial_y^2 + y\,\partial_x\partial_z - x\,\partial_y\partial_z
+          + \tfrac{x^2 + y^2}{4}\,\partial_z^2 ,
+        \end{equation}
+        with no first-order and no zeroth-order part.
+        The principal symbol of $-\Delta_H$ is
+        \begin{equation}\label{eq:symbol}
+          p(x, y; k) = \Bigl(k_X + \tfrac{y}{2}\,k_Z\Bigr)^2 + \Bigl(k_Y - \tfrac{x}{2}\,k_Z\Bigr)^2 ,
+        \end{equation}
+        a positive semi-definite quadratic form in $k$ of rank two at every point, with kernel spanned by
+        $(-\frac{y}{2}, \frac{x}{2}, 1)$.
+        Its $k_Z^2$ coefficient is $(x^2 + y^2)/4$, which vanishes at the identity.
+        For every $\AH > 0$ and every differential operator $R$ of order at most one, the principal symbol of
+        $\AH\,\Delta_H + R$ is $-\AH\,p$ and has rank two.
       \end{proposition}
 
       \begin{proof}
-        The generators $\{\tX, \tY, \tZ\}$ satisfy the sole non-trivial relation $[\tX, \tY] = \tZ$,
-        with $\tZ$ central: $[\tZ, \tX] = [\tZ, \tY] = 0$.
-        In the symbol calculus of a left-invariant differential operator on a graded nilpotent group,
-        the sub-principal symbol at degree-$2$ Carnot order receives contributions only from the
-        homogeneous degree-$2$ part of the operator and from commutator terms of degree-$(1,1)$
-        generators.
-        The only such commutator is $[\tX, \tY] = \tZ$.
-        Since $\tZ$ is central, there is no further commutator that could generate additional $k_Z$-terms.
-        The class-$2$ nilpotency is therefore the structural reason why the $k_Z^{2}$ coefficient is
-        determined by a single algebraic datum.
+        Since $\partial_x(y/2) = 0$ and $\partial_y(x/2) = 0$,
+        $X^2 = \partial_x^2 + y\,\partial_x\partial_z + \frac{y^2}{4}\partial_z^2$ and
+        $Y^2 = \partial_y^2 - x\,\partial_y\partial_z + \frac{x^2}{4}\partial_z^2$, which gives~\eqref{eq:sublap}.
+        Replacing each derivative by $i$ times the corresponding dual variable in the second-order part gives
+        $-p$ as the principal symbol of $\Delta_H$.
+        The form $p$ is the sum of the squares of the two linear forms $k_X + \frac{y}{2}k_Z$ and
+        $k_Y - \frac{x}{2}k_Z$, which are linearly independent at every point, so $p$ has rank two, and its kernel is
+        their common zero set.
+        The principal symbol of an operator of order two is determined by its second-order part, which $R$ does not
+        change.
+        The commutator relation enters only through the coefficients of $X$ and $Y$: indeed
+        $[X, Y] = \partial_x(-\frac{x}{2})\partial_z - \partial_y(\frac{y}{2})\partial_z = -\partial_z$.
       \end{proof}
 
-      \begin{remark}[Contrast with higher-step nilpotent groups]
-For a nilpotent group of class~$3$ or higher, additional commutators $[\tZ, \cdot]$ would be
-non-trivial and could contribute further sub-principal terms.
-The class-$2$ nilpotency of $\heisR$ closes the source list at a single term, making
-the identification problem tractable at this order.
+      \begin{remark}[What the commutator does contribute]
+        The commutator is responsible for the position dependence of~\eqref{eq:symbol}, for the hypoellipticity of
+        $\Delta_H$ by H\"ormander's bracket condition, and for the homogeneous dimension $D_{\mathrm{hom}} = 4$.
+        It does not produce a constant positive coefficient of $k_Z^2$ at any order: a first-order term in $Z$ has
+        a purely imaginary symbol linear in $k_Z$, and a positive $k_Z^2$ term requires the operator to contain
+        $Z^2$ with a constant coefficient.
+        A central coefficient therefore has to come from a new operator, which is the extended target of Q7
+        Conjecture~4.7.
       \end{remark}
 
-  \section{Casimir Identification and Proof of the Main Theorem}\label{sec:casimir}
+  \section{Invariant Forms and the Supplied Target}\label{sec:casimir}
 
-    \subsection{The unique invariant quadratic form under the bridge}
+    \subsection{What invariance fixes}
 
-      By the Rigidity Lemma (Q7 Lemma~4.3), any $\suTwo$-equivariant isomorphism
-      $\varphi \colon \Sym^{2}(\Vr) \to \Wsp$ is unique up to a positive scalar $\lambda > 0$.
-      The image under $\varphi$ of any $\suTwo$-equivariant endomorphism of $\Sym^{2}(\Vr)$
-      is therefore also determined up to $\lambda$.
-
-      \begin{lemma}[Casimir as the unique invariant]\label{lem:casimir-unique}
-        The only $\suTwo$-invariant quadratic form on $\Sym^{2}(\Vr)$ is the Casimir
-        $Q_{C}(v) = \langle v, \Csu\, v\rangle = 2\lVert v \rVert^{2}$.
-        Any other $\suTwo$-equivariant symmetric bilinear form on $\Sym^{2}(\Vr)$ is a scalar
-        multiple of $Q_{C}$.
+      \begin{lemma}[Invariant forms on the spin-one module]\label{lem:casimir-unique}
+        Every $\suTwo$-invariant Hermitian form $h$ on $\Sym^2(\Vr)$ is $h = a\,h_0$ with $a \in \mathbb{R}$, and $h$ is
+        positive definite exactly when $a > 0$.
+        For generators normalised by $[J_1, J_2] = iJ_3$ and cyclically, the Casimir
+        $\Csu = J_1^2 + J_2^2 + J_3^2$ acts as $2 \cdot \mathrm{Id}$, so the Casimir form
+        $Q_C(v) := h_0(v, \Csu v) = 2\,h_0(v, v)$ is the point $a = 2$ of this ray.
+        Invariance does not determine $a$, and rescaling the generators by $\kappa$ multiplies the Casimir by
+        $\kappa^2$.
       \end{lemma}
 
       \begin{proof}
-        The module $\Sym^{2}(\Vr)$ is irreducible of dimension~$3$ over $\mathbb{C}$ (the unique
-        spin-$1$ representation of $\suTwo$).
-        By Schur's lemma, the algebra of $\suTwo$-equivariant endomorphisms
-        $\mathrm{End}_{\suTwo}(\Sym^{2}(\Vr)) \simeq \mathbb{C}$:
-        the only equivariant endomorphisms are scalar multiples of the identity.
-        The Casimir $\Csu = J_{1}^{2} + J_{2}^{2} + J_{3}^{2}$ acts as $j(j+1)\cdot\mathrm{Id} = 2\cdot\mathrm{Id}$
-        on the spin-$j = 1$ module, making $Q_{C} = 2\lVert\cdot\rVert^{2}$ the unique
-        (up to scalar) invariant quadratic form.
+        Write $h(v, w) = h_0(v, Tw)$ with $T$ self-adjoint for $h_0$.
+        Invariance of $h$ and $h_0$ makes $T$ commute with the action; $\Sym^2(\Vr)$ is irreducible, so
+        $T = a\,\mathrm{Id}$ by Schur's lemma, and self-adjointness makes $a$ real.
+        The Casimir acts on the spin-$j$ module as $j(j+1)$, which is $2$ for $j = 1$, and the last assertion is
+        immediate from the definition of $\Csu$.
       \end{proof}
 
-    \subsection{The commutator term maps to the Casimir under the bridge}
+    \subsection{Transport of a supplied invariant form}
 
-      \begin{proposition}[Bridge image of the commutator term]\label{prop:bridge-casimir}
-        Under the equivariant bridge $\varphi$ of\/ Q7 Conjecture~$4.7$~\cite{Beau2026q7}, the
-        sub-principal contribution of\/ $[\tX, \tY] = \tZ$ to the symbol of\/ $\Leff$ is mapped to a
-        quadratic form on $\Wsp$ that is proportional to the Casimir $Q_{C}$ restricted to the
-        spin-weight-$0$ eigenspace $\{e_{0}\} \subset \Sym^{2}(\Vr)$.
-        The proportionality constant is fixed (not a free parameter) by the normalisation
-        $\Csu|_{\Sym^{2}(\Vr)} = 2 \cdot \mathrm{Id}$.
+      \begin{proposition}[Scale-free rigidity of a supplied form]\label{prop:bridge-casimir}
+        Assume \textup{[T]}.
+        \begin{enumerate}
+          \item[(a)] Under \textup{[INV$^+$]}, $\AH = \Az$, and writing the common value as $2\lambda$ with
+          $\lambda > 0$ expresses the transported form as $\lambda\,Q_C$.
+          The number $\lambda$ is determined neither by \textup{[T]} and \textup{[INV$^+$]} nor by the choice of
+          the equivariant isomorphism.
+          \item[(b)] Without \textup{[INV$^+$]}, for every $a, b > 0$ there is a target satisfying \textup{[T]} whose
+          transported form is $a\,Q_\pm + b\,Q_0$.
+        \end{enumerate}
       \end{proposition}
 
       \begin{proof}
-        By Proposition~\ref{prop:source}, the sub-principal $k_Z^{2}$-term arises solely from
-        $[\tX, \tY] = \tZ$.
-        The grading correspondence (Q7 Remark~4.2) identifies $\tZ$ with the spin-weight-$0$
-        basis vector $e_{0} \in \Sym^{2}(\Vr)$.
-        Under $\varphi$, the $k_Z^{2}$-component of $\sigmatwo(\Leff)$ is carried by
-        $\varphi(e_{0}) \in \Wsp$.
-        Any $\suTwo$-equivariant quadratic form evaluated on the $e_{0}$-direction must, by
-        Lemma~\ref{lem:casimir-unique}, be a scalar multiple $\lambda \cdot 2$ of the Casimir
-        eigenvalue on that direction, for some $\lambda > 0$ depending on the normalisation of
-        $\varphi$.
-
-        The scalar $\lambda$ is fixed by consistency with the horizontal sector.
-        The same equivariant identification $\varphi$ must simultaneously map the
-        $e_{\pm}$-directions (spin-weight $\pm 1$, corresponding to horizontal generators $\tX, \tY$)
-        to the horizontal sector of $\Wsp$, where the coefficient is $\AH$.
-        Since $\Csu$ acts as $2 \cdot \mathrm{Id}$ uniformly on all of $\Sym^{2}(\Vr)$ (the Casimir
-        is a central element, so its eigenvalue $j(j+1) = 2$ is the same on all weight subspaces),
-        the equivariant form assigns the same scalar $\lambda \cdot 2$ to both the $e_0$ and the
-        $e_{\pm}$ directions.
-        Therefore $\Az = \lambda \cdot 2 = \AH$, and the ratio $\Az/\AH = 1$ is independent of
-        $\lambda$.
-        With $\AH \to 2$ proved in Q10~\cite{Beau2026q10} and U1~\cite{Beau2026u1}, the
-        normalisation forces $\lambda = 1$ and $\Az = 2$ in the asymptotic regime $q \to \infty$.
-        There is no free scalar in the identification $\Az = 2$: $\lambda$ is eliminated by the
-        horizontal sector and $\AH$.
+        (a) Under [ACT] the isomorphism $\varphi$ is equivariant, so the pullback of an invariant Hermitian form is
+        invariant on $\Sym^2(\Vr)$.
+        By Lemma~\ref{lem:casimir-unique} the pullback is $a\,h_0$ with $a > 0$, and comparison with
+        $\AH\,Q_\pm + \Az\,Q_0$ gives $\AH = \Az = a$; put $\lambda = a/2$.
+        Replacing $g_{\mathrm{sp}}$ by $t\,g_{\mathrm{sp}}$ with $t > 0$ preserves [T] and [INV$^+$] and multiplies
+        $\lambda$ by $t$; replacing $\lambda_0$ by another nonzero scalar multiplies it by a positive factor
+        (Q7 Lemma~4.5(3)).
+        (b) Take $\Wsp$ with the standard real spin-one action and $\varphi_0$ adapted, and let $\Lext$ have constant
+        spatial coefficients, with $g_{\mathrm{sp}}$ diagonal with entries $a, a, b$ in the corresponding real basis.
+        It is invariant under the rotations generated by $J_3$, compatible with the real structure, positive of
+        rank three, and its transport along $\varphi_0$ is $a\,Q_\pm + b\,Q_0$.
       \end{proof}
 
-      \begin{proof}[Proof of Theorem~\ref{thm:main}]
-Proposition~\ref{prop:bridge-casimir} gives $\Az = \Csu = 2$.
-By Q7 Corollary~6.2 (no cross terms) and Proposition~\ref{prop:bridge-casimir}
-($\Az = 2$), the spatial block of the symbol is
-\begin{equation}
-  \sigmatwo(\Leff)\big|_{\Wsp} = \AH(k_X^{2} + k_Y^{2}) + 2\, k_Z^{2}.
-\end{equation}
-Q7 Conjecture~6.6~\cite{Beau2026q7} asserted $\AH \to 2$ as $q \to \infty$; this is now
-proved in Q10~\cite{Beau2026q10} and U1~\cite{Beau2026u1} under the Q5a hypotheses and the
-O-series spectral universality~[U], with rate $|\AH - \Az| = O(q^{-1/2})$.
-The full effective co-metric is therefore
-\begin{equation}
-  g^{\mu\nu} = \mathrm{diag}(-A_{\tau},\, 2,\, 2,\, 2),
-\end{equation}
-which is non-degenerate of rank~$4$.
-Combined with the Lorentzian signature result of Q5b Theorem~6.1~\cite{Beau2026q5b},
-this gives signature $(-,+,+,+)$ and closes Q5b-O2 under the Q5a hypotheses and~[U].
-      \end{proof}
-
-      \begin{remark}[Unconditional character of $\Az = 2$]
-The equality $\Az = 2$ is a consequence of pure representation theory (Schur's lemma applied
-to $\Sym^{2}(\Vr)$ and the algebraic identity $\Csu = 2\cdot\mathrm{Id}$ on spin-$1$).
-It does not depend on the numerical pipeline, on the choice of prime $q$, or on any
-regularity hypothesis beyond bridge non-obstruction.
-The Q5a hypotheses [H1], [H-w], [H-E1], [C] are the only foundational conditions:
-[H-lift] is a theorem under these (Q9~\cite{Beau2026q9}), and bridge non-obstruction
-(exclusion of Case~3) is proved by the coercivity argument of Q9 Corollary~5.2~\cite{Beau2026q9}.
+      \begin{remark}[The number 2 is a normalisation]
+        The value $2$ in~\eqref{eq:main} is the Casimir eigenvalue in a chosen normalisation of the generators; it
+        fixes which invariant form is called the Casimir form, not the size of a geometric coefficient.
+        Fixing $\lambda$ by matching $\AH$ to a value obtained elsewhere is legitimate only when that value is obtained
+        without reference to $\Az$; the conditional isotropy theorem of Q10~\cite{Beau2026q10} takes the scale as an
+        independent input, so the two papers together fix no value.
+        A coincidence of a discrete compression entry with the number $2$ is not normalisation-invariant and carries
+        no evidential weight (Q7 Remark~6.3).
       \end{remark}
 
-  \section{Consistency with Hypoelliptic Symbol Calculus}\label{sec:beals}
+  \section{Homogeneity and Scale}\label{sec:beals}
 
-    \subsection{The Beals\textendash Greiner framework}
+    \subsection{Homogeneous degree under the Carnot dilations}
 
-      The theory of hypoelliptic pseudodifferential operators on graded nilpotent groups
-      (Beals\textendash Greiner calculus; see also Taylor's operator algebras on nilpotent groups)
-      provides an independent setting for computing the sub-principal symbol of $\Leff$ directly.
-      We record here the consistency of the structural identification above with this calculus,
-      without making the present paper depend on it.
-
-      \begin{proposition}[Beals\textendash Greiner consistency]\label{prop:bg}
-        In the Beals\textendash Greiner symbol calculus adapted to $\heisR$, the sub-principal
-        symbol of an operator of the form $\Leff = \tX^{2} + \tY^{2} + (\text{lower-order})$
-        at homogeneous degree~$2$ in the $\tZ$-direction receives contributions solely from
-        the commutator term $[\tX, \tY] = \tZ$.
-        No contributions at higher sub-principal order arise within the class-$2$ nilpotency
-        of $\heisR$, since the lower central series terminates at step~$2$.
+      \begin{proposition}[Homogeneous degree two excludes $Z^2$]\label{prop:bg}
+        The left-invariant differential operators on $\heisR$ that are homogeneous of degree two under the Carnot
+        dilations form the span of $X^2$, $Y^2$, $XY + YX$ and $Z$.
+        None of them has a nonzero constant $k_Z^2$ coefficient in its principal symbol.
+        The operator $Z^2$ is homogeneous of degree four.
       \end{proposition}
 
-      The proof is a standard computation in the Heisenberg calculus and is recorded for
-      completeness; it confirms Proposition~\ref{prop:source} at the level of the symbol
-      expansion without adding new input to the identification of $\Az$.
+      \begin{proof}
+        By the Poincar\'e--Birkhoff--Witt theorem, the monomials $X^a Y^b Z^c$ form a basis of the left-invariant
+        differential operators, and each is homogeneous of degree $a + b + 2c$.
+        Degree two leaves $X^2$, $XY$, $Y^2$ and $Z$, and $XY = \frac12(XY + YX) + \frac12 Z$.
+        By Proposition~\ref{prop:source} the principal symbols of $X^2$ and $Y^2$ have $k_Z^2$ coefficients $-y^2/4$
+        and $-x^2/4$, and the same computation gives $xy/2$ for $XY + YX$; $Z$ is of first order.
+        A combination of these therefore has a $k_Z^2$ coefficient that is a quadratic polynomial in $(x, y)$ without
+        constant term, which is constant only if it vanishes identically.
+        The degree of $Z^2$ is $2 \cdot 2$.
+      \end{proof}
 
-      \begin{remark}[Why Beals\textendash Greiner is not the primary tool]
-A direct computation via the hypoelliptic symbol expansion would confirm $\Az = 2$ but
-would require significant technical apparatus (Plancherel decomposition over the
-Schr\"odinger representation fibres, symbol estimates on $L^{2}(\mathbb{R})$-valued kernels)
-that is out of proportion with the simplicity of the structural argument of
-Section~\ref{sec:casimir}.
-The structural argument is preferred because it makes the reason for $\Az = 2$ transparent:
-it is a consequence of Schur's lemma and the Casimir eigenvalue, not an artefact of the
-specific form of the expansion.
+      \begin{remark}[Isotropy selects a length scale]
+        Let $L_{A_H, A_Z} = A_H\,\Delta_H + A_Z\,Z^2$ with constants $A_H, A_Z > 0$.
+        Since $X$, $Y$ and $Z$ are homogeneous of degrees one, one and two, the pullback of $L_{A_H, A_Z}$ by the
+        dilation $\delta_r$ is $L_{r^2 A_H,\, r^4 A_Z}$.
+        The ratio $A_Z/A_H$ is therefore multiplied by $r^2$ and is not dilation-invariant: the equality
+        $A_H = A_Z$ holds at one scale only, and asserting it fixes a unit of length along the central direction.
+        On the finite groups $\mathrm{Heis}_3(\mathbb{Z}/q\mathbb{Z})$ such a unit could come from the discretisation,
+        but its value then depends on how the continuum limit is taken.
+        Any operator supplying [T] with $\AH = \Az$ thus carries a length scale that neither Q5b's operator nor
+        representation theory provides.
       \end{remark}
 
   \section{Consequences for the Effective Metric and Q5b-O2}\label{sec:consequences}
 
-    \subsection{Resolution of Q5b-O2}
+    \subsection{Status of Q5b-O2}
 
-      Open problem Q5b-O2 of~\cite{Beau2026q5b} asked for the extension of the effective metric
-      to a full $4 \times 4$ Lorentzian tensor by incorporating the sub-principal $\tZ$-correction.
-      Theorem~\ref{thm:main} provides this extension:
+      By Proposition~\ref{prop:source}, the co-metric of Q5b Theorem~5.2 cannot be completed to full rank by any
+      lower-order correction of $\Leff$.
+      A completion requires a new operator containing a central term of homogeneous degree four, together with the
+      scale that such a term carries.
+      Q5b-O2 is open.
 
-      \begin{corollary}[Full rank-$4$ effective metric]\label{cor:metric}
-        Under the Q5a hypotheses, [U] \textup{(}O-series spectral universality, proved in
-        U1~\cite{Beau2026u1}\textup{)}, and the bridge non-obstruction \textup{(}Q7\textendash Q9\textup{)},
-        the effective co-metric tensor on $\mathbb{R}_{\tau} \times \heisR$ is
-        \begin{equation}
-          g^{\mu\nu} = \mathrm{diag}(-A_{\tau},\, 2,\, 2,\, 2),
-        \end{equation}
-        which is non-degenerate of rank~$4$, with Lorentzian signature $(-,+,+,+)$ and
-        with all spatial eigenvalues equal to the $\suTwo$-Casimir eigenvalue $\Csu = 2$.
-        The asymptotic isotropy $\AH \to 2$ with rate $O(q^{-1/2})$ is proved in
-        Q10~\cite{Beau2026q10} and U1~\cite{Beau2026u1}.
-        Open problem $Q5b$-$O2$ is resolved under the Q5a hypotheses and~[U].
+      \begin{corollary}[Conditional form of a full-rank co-metric]\label{cor:metric}
+        Assume \textup{[T]} and \textup{[INV$^+$]}, and assume that $\Lext$ has temporal coefficient $-A_\tau$ with
+        $A_\tau > 0$ and no mixed temporal--spatial terms in the adapted frame.
+        Then its co-metric in that frame is $\mathrm{diag}(-A_\tau, 2\lambda, 2\lambda, 2\lambda)$ with $\lambda > 0$,
+        non-degenerate of rank four and of signature $(-,+,+,+)$.
+        The value of $\lambda$ is not determined.
       \end{corollary}
 
-    \subsection{The bridge conjecture: status update}
+      \begin{proof}
+        By Proposition~\ref{prop:bridge-casimir}(a) the spatial block is $2\lambda$ times the identity in the adapted
+        frame; the temporal block is the stated assumption.
+      \end{proof}
 
-      Q7 Conjecture~4.7~\cite{Beau2026q7} posits the existence of the equivariant bridge
-      $\varphi \colon \Sym^{2}(\Vr) \xrightarrow{\sim} \Wsp$.
-      Q9~\cite{Beau2026q9} proves the bridge non-obstruction: the pathological Case~3 (obstruction
-      to positivity) is excluded by the coercivity of the Mosco limit, leaving only the
-      isotropic Case~1 ($\AH = \Az$) and the anisotropic Case~2 ($\AH \neq \Az$).
-      Q10~\cite{Beau2026q10} and U1~\cite{Beau2026u1} then prove $\AH \to 2 = \Az$ under the
-      Q5a hypotheses and~[U], establishing that only Case~1 survives in the limit.
-      The bridge conjecture is thus resolved in the isotropic case conditionally on the Q5a
-      hypotheses and~[U].
-      Full bridge existence at finite $q$ (Q7 Conjecture~4.7 in its original form) remains an
-      open problem at the structural level; what is proved is the unique isotropic limit.
+      The Lorentzian signature of Q5b Theorem~6.1 concerns Q5b's own operator, conditional on [H-L] and a
+      hyperbolicity hypothesis; it is not a statement about $\Lext$.
 
-    \subsection{Structural significance: $\Az$ is not a free parameter}
+    \subsection{The bridge question}
 
-      A central feature of the result is that $\Az$ is not a tunable constant of the effective
-      geometry.
-      It is fixed by the Casimir of the unique irreducible $\suTwo$-module of dimension~$3$.
-      This is consistent with the broader programme principle: physical parameters emerge from
-      the spectral structure of the substrate, not from external inputs.
-      The effective metric is therefore determined, up to the single temporal coefficient $A_{\tau}$
-      (subject to Q5b-O3~\cite{Beau2026q5b}), by the representation-theoretic data of
-      O23~\cite{Beau2026a27} (Theorem~3.1, conditional on its supplied spinor carrier; the
-      threshold $\Sigma_c(n_3) = 3$ is a supplied selection rule),
-      O28\textendash O29~\cite{Beau2026a32,Beau2026a33}, and Q7~\cite{Beau2026q7}.
+      Q7 Conjecture~4.7, the existence of an extended target with the listed compatibility conditions, is open.
+      The present results neither construct nor exclude it.
+      They add two requirements to it: a positive central coefficient must come from a term of homogeneous degree
+      four, and isotropy requires [INV$^+$] and a length scale.
+      Q10~\cite{Beau2026q10} states the further inputs under which fingerprint uniformity would force the ratio
+      $\AH/\Az$ towards one; none of them is established.
 
-  \section{Summary and Open Problems}
+    \subsection{What would fix a coefficient}
+
+      Representation theory fixes the shape of an invariant form and leaves its size free
+      (Lemma~\ref{lem:casimir-unique}); the Carnot structure makes the relative size of central and horizontal
+      coefficients scale-dependent (Section~\ref{sec:beals}).
+      A value of $\Az$, and in particular the value $2$, would therefore require a dimensionful datum of the
+      construction, obtained independently of $\AH$.
+
+  \section{Summary and Open Problems}\label{sec:summary}
 
     \subsection{What this paper establishes}
 
       \begin{enumerate}
-        \item The sub-principal $k_Z^{2}$-term in $\sigmatwo(\Leff)$ has a unique algebraic source:
-        the Heisenberg commutator $[\tX, \tY] = \tZ$ (Proposition~\ref{prop:source}).
-        \item Under the equivariant bridge, the coefficient of this term is fixed by the
-        $\suTwo$-Casimir: $\Az = \Csu = 2$ (Lemma~\ref{lem:casimir-unique},
+        \item The Heisenberg commutator does not generate a central coefficient: the principal symbol of the
+        sub-Laplacian has rank two everywhere, and lower-order terms do not change it
+        (Proposition~\ref{prop:source}).
+        \item Left-invariant operators of homogeneous degree two carry no constant $k_Z^2$ term, and the ratio of
+        central to horizontal coefficients scales as $r^2$ under dilations (Proposition~\ref{prop:bg}).
+        \item For a supplied positive rank-three target with full $\suTwo$-invariance, $\AH = \Az = 2\lambda$ with
+        $\lambda > 0$ free; rotation invariance about one axis gives no relation (Lemma~\ref{lem:casimir-unique},
         Proposition~\ref{prop:bridge-casimir}).
-        \item Consequently the effective spatial co-metric is isotropic with all eigenvalues
-        equal to~$2$, and the full co-metric $g^{\mu\nu}$ is non-degenerate rank-$4$ Lorentzian
-        (Theorem~\ref{thm:main}, Corollary~\ref{cor:metric}).
-        \item Open problem Q5b-O2 of~\cite{Beau2026q5b} is resolved under the hypotheses of
-        Theorem~\ref{thm:main}.
+        \item No value of $\Az$ is derived, and Q5b-O2 is open.
       \end{enumerate}
 
     \subsection{Remaining open problems}
 
-      \textbf{Q8-O1} \emph{(Bridge existence at finite $q$).}
-      Q9~\cite{Beau2026q9} proves the bridge non-obstruction (Case~3 excluded), and
-      Q10\textendash U1 close the isotropic limit $\AH = \Az = 2$.
-      What remains open is the finite-$q$ structural question: does an explicit
-      $\suTwo$-equivariant isomorphism $\varphi_q \colon \Sym^{2}(\Vr) \xrightarrow{\sim} \Wsp$
-      exist at each prime $q$, not just in the asymptotic limit?
-      This is now a secondary open problem: the programme consequences are established
-      without it.
+      \textbf{Q8-O1} \emph{(Extended target).}
+      Construct an operator or effective form supplying [T], with a central term of homogeneous degree four, and
+      relate it to Q5b's horizontal geometry.
 
-      \textbf{Q8-O2} \emph{(Unconditional isotropy --- closed).}
-      Q7 Conjecture~6.6 (asymptotic $\AH \to 2$ as $q \to \infty$) is now proved in
-      Q10~\cite{Beau2026q10} (structural argument under~[U]) and
-      U1~\cite{Beau2026u1} (proof of~[U] with rate $O(q^{-1/2})$), both conditionally on the
-      Q5a hypotheses.
-      This open problem is closed.
+      \textbf{Q8-O2} \emph{(Full invariance).}
+      Derive [INV$^+$] for such a construction, or show that it fails; without it no relation between $\AH$ and
+      $\Az$ follows.
 
-      \textbf{Q8-O3} \emph{(Identification of $A_{\tau}$ and completion of Q5b-O3).}
-      With $\Az = 2$ established, the remaining free coefficient is $A_{\tau}$
-      (the temporal sector of the effective metric).
-      Its identification from the Born\textendash Infeld saturation data is the subject of
-      Q5b-O3~\cite{Beau2026q5b}.
+      \textbf{Q8-O3} \emph{(Scale).}
+      Identify the length scale that a central term of degree four carries, and a value of $\Az$ obtained without
+      reference to $\AH$.
+      The temporal coefficient $A_\tau$ (Q5b-O3) is not addressed here.
 
-      \clearpage
-      \bibliography{cosmochrony-bibliography}
+    \subsection{Interpretive outlook}
+
+      \emph{This subsection is interpretation, not a result.}
+      In the emergent geometry of the programme, the central direction of the Heisenberg group is the one produced by
+      the non-commutativity of the two horizontal directions.
+      The results above show that this production happens at the level of reachability and dimension, not at the
+      level of the metric: the commutator makes the central direction accessible, but it does not assign it a length.
+      Giving the central direction a length comparable to the horizontal ones is an additional physical input, and
+      because the two kinds of direction scale differently, that input is a length scale.
+      For a reader situating the programme, the question of a full-rank isotropic metric is therefore a question
+      about which feature of the substrate sets a unit of length, not a question that the symmetry group settles on
+      its own.
+
+  \section*{Acknowledgements}
+
+    Portions of the analysis and editorial development benefited from iterative interactions with large language
+    models used as analytical assistants.
+    All mathematical claims and interpretations remain the author's responsibility.
+
+  \clearpage
+  {\raggedright
+  \bibliography{cosmochrony-bibliography}
+  }
 
 \end{document}
