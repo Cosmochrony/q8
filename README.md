@@ -10,7 +10,7 @@ $k_Z^2$ (open problem Q5b-O2).
 
 ## Core Result
 
-- **Rank obstruction (unconditional).** With $X = \partial_x + \tfrac{y}{2}\partial_z$,
+- **Rank obstruction (unconditional).** With the left-invariant fields $X = \partial_x + \tfrac{y}{2}\partial_z$,
   $Y = \partial_y - \tfrac{x}{2}\partial_z$, the sub-Laplacian $X^2 + Y^2$ has no first-order part, and the principal
   symbol of $-\Delta_H$ is $(k_X + \tfrac{y}{2}k_Z)^2 + (k_Y - \tfrac{x}{2}k_Z)^2$, of rank two everywhere, with a
   $k_Z^2$ coefficient $(x^2+y^2)/4$ that vanishes at the identity. No lower-order term changes this: the commutator
@@ -26,7 +26,7 @@ $k_Z^2$ (open problem Q5b-O2).
 ## Keywords
 
 Heisenberg group, sub-Laplacian, principal symbol, Carnot dilations, su(2)-invariant forms, Casimir operator,
-Schur's lemma, effective metric, emergent geometry.
+Schur's lemma, effective metric, emergent geometry, Cosmochrony.
 
 ## Repository Contents
 

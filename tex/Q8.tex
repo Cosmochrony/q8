@@ -61,8 +61,9 @@
     symbol of rank two with an empty central slot; completing it to a four-dimensional Lorentzian co-metric requires
     a positive coefficient $A_Z$ of $k_Z^2$ (open problem Q5b-O2).
     We prove that the Heisenberg commutator $[X, Y] = Z$ does not supply it.
-    In exponential coordinates the sub-Laplacian $X^2 + Y^2$ has no first-order part, its principal symbol is a sum
-    of two squares of rank two at every point, and its $k_Z^2$ coefficient is position-dependent and vanishes at the
+    In exponential coordinates the sub-Laplacian $X^2 + Y^2$ has no first-order part, the principal symbol of its
+    negative is a sum of two squares of rank two at every point, and its $k_Z^2$ coefficient is position-dependent
+    and vanishes at the
     identity; no term of lower differential order changes this.
     Under the Carnot dilations the sub-Laplacian is homogeneous of degree two while $Z^2$ is homogeneous of degree
     four, so a constant central coefficient requires a new operator, and the ratio of central to horizontal
@@ -135,7 +136,8 @@
       \end{theorem}
 
       Item~(i) is unconditional; it shows that Q5b-O2 cannot be settled from $\Leff$ by any lower-order correction,
-      and that a positive central coefficient requires a new operator of higher homogeneous degree.
+      and that a left-invariant operator with a positive constant central coefficient must contain a term $Z^2$ of
+      homogeneous degree four.
       Items~(ii) and~(iii) concern such a new operator, when one is supplied.
       The form of~\eqref{eq:main} records the Casimir normalisation; it does not fix $\Az$.
       In particular $\Az = 2$ is not a consequence of anything proved here or cited.
@@ -152,8 +154,9 @@
 
     \subsection{Coordinates on the Heisenberg group}
 
-      In exponential coordinates $(x, y, z)$ on $\heisR$, with the convention of Q7~\cite{Beau2026q7}, the
-      left-invariant horizontal fields and their commutator are
+      We use exponential coordinates $(x, y, z)$ on $\heisR$ with the group law
+      $(x, y, z)\cdot(x', y', z') = (x + x',\, y + y',\, z + z' + \tfrac12(x'y - xy'))$.
+      The left-invariant horizontal fields and their commutator are
       \begin{equation}\label{eq:fields}
         X = \partial_x + \tfrac{y}{2}\,\partial_z, \qquad
         Y = \partial_y - \tfrac{x}{2}\,\partial_z, \qquad
@@ -163,7 +166,10 @@
       The Carnot dilations are $\delta_r(x, y, z) = (rx, ry, r^2 z)$ for $r > 0$; $X$ and $Y$ are homogeneous of
       degree one and $Z$ of degree two.
       The symbol of a differential operator is taken with $\partial_x \mapsto i k_X$, $\partial_y \mapsto i k_Y$ and
-      $\partial_z \mapsto i k_Z$.
+      $\partial_z \mapsto i k_Z$, so that the symbol of $\Delta_H$ reproduces the symbol of Q7 (Section~4.5)
+      up to sign.
+      A co-metric is read as the coefficient matrix of the second-order part, that is, as $-\sigmatwo$; a positive
+      coefficient of $k_Z^2$ in a co-metric is a positive coefficient of $-\partial_z^2$ in the operator.
 
     \subsection{The spin-one module and the supplied target}
 
@@ -180,10 +186,15 @@
 
       \begin{hypo}[{[T]}, supplied target]
         A candidate continuum operator $\Lext$ (Q7 Criterion~5.1) has a positive rank-three spatial form
-        $g_{\mathrm{sp}}$ on $\Wsp$, and [ID], [ACT], [INV] and [ADAPT] hold, so that the pullback of its Hermitian extension along
-        $\varphi = \lambda_0\varphi_0$, $\lambda_0 \in \mathbb{C}^\times$, is $\AH\,Q_\pm + \Az\,Q_0$ with
-        $\AH, \Az > 0$ (Q7 Lemma~4.5(3)).
+        $g_{\mathrm{sp}}$ on $\Wsp$, and [ACT], [INV] and [ADAPT] hold, so that the pullback of its Hermitian
+        extension along the adapted isomorphism $\varphi_0$ is $\AH\,Q_\pm + \Az\,Q_0$ with $\AH, \Az > 0$
+        (Q7 Lemma~4.5(3) with $\lambda = 1$).
       \end{hypo}
+
+      Along $\lambda_0\varphi_0$ with $\lambda_0 \in \mathbb{C}^\times$ both coefficients are multiplied by
+      $|\lambda_0|^2$; fixing $\varphi_0$ makes $\AH$ and $\Az$ the entries of $g_{\mathrm{sp}}$ in the adapted frame.
+      Hypothesis [ID] is not part of [T]: it is needed only to transfer statements from $\Sym^2(\Vr)$ to the measured
+      space $\heff$ (Q7 Remark~4.6), and every statement below is made on $\Sym^2(\Vr)$ and $\Wsp$.
 
       \begin{hypo}[{[INV$^+$]}, full invariance]
         The Hermitian extension of $g_{\mathrm{sp}}$ is invariant under the whole $\suTwo$ action of [ACT], not only
@@ -218,7 +229,7 @@
       \end{proposition}
 
       \begin{proof}
-        Since $\partial_x(y/2) = 0$ and $\partial_y(x/2) = 0$,
+        The coefficients of $X$ and $Y$ do not depend on $z$, and $\partial_x(y/2) = 0$, $\partial_y(x/2) = 0$, so
         $X^2 = \partial_x^2 + y\,\partial_x\partial_z + \frac{y^2}{4}\partial_z^2$ and
         $Y^2 = \partial_y^2 - x\,\partial_y\partial_z + \frac{x^2}{4}\partial_z^2$, which gives~\eqref{eq:sublap}.
         Replacing each derivative by $i$ times the corresponding dual variable in the second-order part gives
@@ -232,14 +243,15 @@
         $[X, Y] = \partial_x(-\frac{x}{2})\partial_z - \partial_y(\frac{y}{2})\partial_z = -\partial_z$.
       \end{proof}
 
-      \begin{remark}[What the commutator does contribute]
+      \begin{remark}[What the commutator does contribute]\label{rem:commutator}
         The commutator is responsible for the position dependence of~\eqref{eq:symbol}, for the hypoellipticity of
         $\Delta_H$ by H\"ormander's bracket condition, and for the homogeneous dimension $D_{\mathrm{hom}} = 4$.
-        It does not produce a constant positive coefficient of $k_Z^2$ at any order: a first-order term in $Z$ has
-        a purely imaginary symbol linear in $k_Z$, and a positive $k_Z^2$ term requires the operator to contain
-        $Z^2$ with a constant coefficient.
-        A central coefficient therefore has to come from a new operator, which is the extended target of Q7
-        Conjecture~4.7.
+        It does not produce a constant positive coefficient of $k_Z^2$: a first-order term in $Z$ has a purely
+        imaginary symbol linear in $k_Z$, and at the identity, where $X$, $Y$ and $Z$ reduce to $\partial_x$,
+        $\partial_y$ and $-\partial_z$, the $k_Z^2$ coefficient of a left-invariant second-order operator is the
+        coefficient of its $Z^2$ term.
+        A central coefficient therefore has to come from a new operator, such as one supplying the extended target of
+        Q7 Conjecture~4.7.
       \end{remark}
 
   \section{Invariant Forms and the Supplied Target}\label{sec:casimir}
@@ -271,8 +283,7 @@
         \begin{enumerate}
           \item[(a)] Under \textup{[INV$^+$]}, $\AH = \Az$, and writing the common value as $2\lambda$ with
           $\lambda > 0$ expresses the transported form as $\lambda\,Q_C$.
-          The number $\lambda$ is determined neither by \textup{[T]} and \textup{[INV$^+$]} nor by the choice of
-          the equivariant isomorphism.
+          The number $\lambda$ is not determined by \textup{[T]} and \textup{[INV$^+$]}.
           \item[(b)] Without \textup{[INV$^+$]}, for every $a, b > 0$ there is a target satisfying \textup{[T]} whose
           transported form is $a\,Q_\pm + b\,Q_0$.
         \end{enumerate}
@@ -284,8 +295,7 @@
         By Lemma~\ref{lem:casimir-unique} the pullback is $a\,h_0$ with $a > 0$, and comparison with
         $\AH\,Q_\pm + \Az\,Q_0$ gives $\AH = \Az = a$; put $\lambda = a/2$.
         Replacing $g_{\mathrm{sp}}$ by $t\,g_{\mathrm{sp}}$ with $t > 0$ preserves [T] and [INV$^+$] and multiplies
-        $\lambda$ by $t$; replacing $\lambda_0$ by another nonzero scalar multiplies it by a positive factor
-        (Q7 Lemma~4.5(3)).
+        $\lambda$ by $t$.
         (b) Take $\Wsp$ with the standard real spin-one action and $\varphi_0$ adapted, and let $\Lext$ have constant
         spatial coefficients, with $g_{\mathrm{sp}}$ diagonal with entries $a, a, b$ in the corresponding real basis.
         It is invariant under the rotations generated by $J_3$, compatible with the real structure, positive of
@@ -324,7 +334,7 @@
         The degree of $Z^2$ is $2 \cdot 2$.
       \end{proof}
 
-      \begin{remark}[Isotropy selects a length scale]
+      \begin{remark}[Isotropy selects a length scale]\label{rem:scale}
         Let $L_{A_H, A_Z} = A_H\,\Delta_H + A_Z\,Z^2$ with constants $A_H, A_Z > 0$.
         Since $X$, $Y$ and $Z$ are homogeneous of degrees one, one and two, the pullback of $L_{A_H, A_Z}$ by the
         dilation $\delta_r$ is $L_{r^2 A_H,\, r^4 A_Z}$.
@@ -342,8 +352,10 @@
 
       By Proposition~\ref{prop:source}, the co-metric of Q5b Theorem~5.2 cannot be completed to full rank by any
       lower-order correction of $\Leff$.
-      A completion requires a new operator containing a central term of homogeneous degree four, together with the
-      scale that such a term carries.
+      A left-invariant completion whose spatial co-metric is positive definite at the identity needs a positive
+      $k_Z^2$ coefficient there, which by the argument of Remark~\ref{rem:commutator} is the coefficient of a
+      term $Z^2$, of
+      homogeneous degree four (Proposition~\ref{prop:bg}); it carries a scale (Remark~\ref{rem:scale}).
       Q5b-O2 is open.
 
       \begin{corollary}[Conditional form of a full-rank co-metric]\label{cor:metric}
@@ -359,7 +371,7 @@
         frame; the temporal block is the stated assumption.
       \end{proof}
 
-      The Lorentzian signature of Q5b Theorem~6.1 concerns Q5b's own operator, conditional on [H-L] and a
+      The Lorentzian signature of Q5b Theorem~6.1 concerns Q5b's own operator, conditional on [H-L], [H-lift] and a
       hyperbolicity hypothesis; it is not a statement about $\Lext$.
 
     \subsection{The bridge question}
@@ -388,7 +400,8 @@
         sub-Laplacian has rank two everywhere, and lower-order terms do not change it
         (Proposition~\ref{prop:source}).
         \item Left-invariant operators of homogeneous degree two carry no constant $k_Z^2$ term, and the ratio of
-        central to horizontal coefficients scales as $r^2$ under dilations (Proposition~\ref{prop:bg}).
+        central to horizontal coefficients scales as $r^2$ under dilations (Proposition~\ref{prop:bg},
+        Remark~\ref{rem:scale}).
         \item For a supplied positive rank-three target with full $\suTwo$-invariance, $\AH = \Az = 2\lambda$ with
         $\lambda > 0$ free; rotation invariance about one axis gives no relation (Lemma~\ref{lem:casimir-unique},
         Proposition~\ref{prop:bridge-casimir}).
